@@ -1,26 +1,69 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>kollektiv-soon-reveal-fix</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOLLETTIV[o]*</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 1.5s ease-in-out;
+            font-size: 58px;
+            font-weight: bold;
+        }
+        #title.shrink {
+            top: 10%;
+            left: 10%;
+            transform: translate(0, 0);
+            font-size: 32px;
+        }
 
-    <meta property="og:title" content="kollektiv-soon-reveal-fix" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        #newText {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            font-size: 20px;
+        }
+        #newText.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">KOLLETTIV[o]*</div>
+    <div id="newText">COMING SOON...</div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const title = document.getElementById('title');
+            const newText = document.getElementById('newText');
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+            // Trigger transition after a short delay
+            setTimeout(() => {
+                title.classList.add('shrink');
+                
+                // Show new text after title has shrunk
+                setTimeout(() => {
+                    newText.classList.add('show');
+                }, 1500);  // Match the transition time of title
+            }, 1000);  // Initial delay before starting transition
+        });
+    </script>
+</body>
 </html>
